@@ -11,4 +11,7 @@ public class OrderLine {
     private int quantity;
     @ManyToOne
     private Order order;
+
+    @ManyToOne
+    private Product product;
 }

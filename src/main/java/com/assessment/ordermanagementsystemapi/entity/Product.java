@@ -2,6 +2,8 @@ package com.assessment.ordermanagementsystemapi.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "products")
 public class Product {
@@ -12,4 +14,7 @@ public class Product {
     private String name;
     private String skuCode;
     private double unitPrice;
+
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    private List<OrderLine> orderLines;
 }
