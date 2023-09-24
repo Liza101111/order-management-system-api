@@ -7,6 +7,8 @@ import com.assessment.ordermanagementsystemapi.service.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class ProductService {
@@ -18,5 +20,10 @@ public class ProductService {
         Product product = productMapper.toEntity(productDTO);
         Product savedProduct = productRepository.save(product);
         return productMapper.toDto(savedProduct);
+    }
+
+    public List<ProductDTO> getAll(){
+        List<Product> products = productRepository.findAll();
+        return productMapper.entitiesToDTOs(products);
     }
 }
