@@ -1,10 +1,11 @@
 package com.assessment.ordermanagementsystemapi.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -19,6 +20,5 @@ public class Order {
     private List<OrderLine> orderLines;
     @ManyToOne
     private Customer customer;
-
 
 }

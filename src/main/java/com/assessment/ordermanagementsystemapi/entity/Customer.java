@@ -1,9 +1,10 @@
 package com.assessment.ordermanagementsystemapi.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "customers")
 public class Customer {

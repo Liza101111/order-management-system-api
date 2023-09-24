@@ -1,7 +1,9 @@
 package com.assessment.ordermanagementsystemapi.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "order_lines")
 public class OrderLine {
