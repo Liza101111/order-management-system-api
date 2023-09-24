@@ -8,9 +8,9 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface OrderMapper {
+
     OrderDTO toDto(Order order);
     Order toEntity(OrderDTO orderDTO);
-
-    List<OrderDTO> entitiesToDtos(List<Order> orders);
+    List<OrderDTO> entitiesToDTOs(List<Order> orders);
 
 }
