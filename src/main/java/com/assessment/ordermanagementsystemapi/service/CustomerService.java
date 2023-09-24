@@ -7,6 +7,8 @@ import com.assessment.ordermanagementsystemapi.service.mapper.CustomerMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class CustomerService {
@@ -18,5 +20,10 @@ public class CustomerService {
         Customer customer = customerMapper.toEntity(customerDTO);
         Customer savedCustomer = customerRepository.save(customer);
         return customerMapper.toDto(savedCustomer);
+    }
+
+    public List<CustomerDTO> getAll(){
+        List<Customer> customers = customerRepository.findAll();
+        return customerMapper.entitiesToDtos(customers);
     }
 }
