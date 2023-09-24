@@ -31,7 +31,8 @@ public class OrderController {
     }
 
     @GetMapping("/searchByDate")
-    public ResponseEntity<List<OrderDTO>> getOrdersByDate(@RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date date) {
+    public ResponseEntity<List<OrderDTO>> getOrdersByDate(
+            @RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date date) {
         List<OrderDTO> orders = orderService.getOrdersByDate(date);
 
         if (orders.isEmpty()) {
@@ -46,6 +47,18 @@ public class OrderController {
     public ResponseEntity<List<OrderDTO>> getOrdersByProduct(
             @RequestParam("productName") String productName) {
         List<OrderDTO> orders = orderService.getOrdersByProduct(productName);
+
+        if (orders.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(orders);
+        }
+    }
+
+    @GetMapping("/searchByCustomer")
+    public ResponseEntity<List<OrderDTO>> getOrdersByCustomer(
+            @RequestParam("customerName") String customerName) {
+        List<OrderDTO> orders = orderService.getOrdersByCustomer(customerName);
 
         if (orders.isEmpty()) {
             return ResponseEntity.notFound().build();

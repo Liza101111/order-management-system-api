@@ -38,4 +38,9 @@ public class OrderService {
         return orderMapper.entitiesToDTOs(orders);
     }
 
+    public List<OrderDTO> getOrdersByCustomer(String customerName){
+        List<Order> orders = orderRepository.findByCustomer(customerName);
+        return orderMapper.entitiesToDTOs(orders);
+    }
+
 }
