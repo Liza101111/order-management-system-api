@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/order")
@@ -18,4 +20,8 @@ public class OrderController {
         return ResponseEntity.ok(orderService.save(orderDTO));
     }
 
+    @GetMapping
+    public ResponseEntity<List<OrderDTO>> getAllOrders() {
+        return ResponseEntity.ok(orderService.getAll());
+    }
 }

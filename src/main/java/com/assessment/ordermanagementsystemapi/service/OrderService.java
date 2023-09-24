@@ -7,6 +7,8 @@ import com.assessment.ordermanagementsystemapi.service.mapper.OrderMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class OrderService {
@@ -18,6 +20,11 @@ public class OrderService {
         Order order = orderMapper.toEntity(orderDTO);
         Order savedOrder = orderRepository.save(order);
         return orderMapper.toDto(savedOrder);
+    }
+
+    public List<OrderDTO> getAll(){
+        List<Order> orders = orderRepository.findAll();
+        return orderMapper.entitiesToDTOs(orders);
     }
 
 }
