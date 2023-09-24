@@ -7,6 +7,7 @@ import com.assessment.ordermanagementsystemapi.service.mapper.OrderMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -24,6 +25,11 @@ public class OrderService {
 
     public List<OrderDTO> getAll(){
         List<Order> orders = orderRepository.findAll();
+        return orderMapper.entitiesToDTOs(orders);
+    }
+
+    public List<OrderDTO> getOrdersByDate(Date date) {
+        List<Order> orders = orderRepository.findOrdersBySubmissionDate(date);
         return orderMapper.entitiesToDTOs(orders);
     }
 
