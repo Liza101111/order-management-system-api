@@ -1,6 +1,7 @@
 package com.assessment.ordermanagementsystemapi.service;
 
 import com.assessment.ordermanagementsystemapi.entity.Order;
+import com.assessment.ordermanagementsystemapi.entity.OrderLine;
 import com.assessment.ordermanagementsystemapi.exception.ResourceNotFoundException;
 import com.assessment.ordermanagementsystemapi.repository.OrderRepository;
 import com.assessment.ordermanagementsystemapi.service.dto.OrderDTO;
@@ -64,6 +65,27 @@ public class OrderService {
         Order order = orderRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException(message + id));
         orderRepository.delete(order);
+    }
+
+    public OrderDTO changeQuantityInOrderLine(Long orderId, Long orderLineId, int newQuantity){
+
+        //Retrieve the order by orderId
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(()-> new ResourceNotFoundException(message + orderId));
+
+        //Find the specific order line in the order
+        OrderLine orderLine = order.getOrderLines()
+                .stream()
+                .filter(line -> line.getId().equals(orderLineId))
+                .findFirst()
+                .orElseThrow(() -> new ResourceNotFoundException("OrderLine not found with id: " + orderLineId));
+
+        //Update the quantity of the order line
+        orderLine.setQuantity(newQuantity);
+
+        Order updatedOrder = orderRepository.save(order);
+
+        return orderMapper.toDto(updatedOrder);
     }
 
 }

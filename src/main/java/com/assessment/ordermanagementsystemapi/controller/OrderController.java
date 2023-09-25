@@ -91,4 +91,13 @@ public class OrderController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping("/{orderId}/orderLines/{orderLineId}/quantity/{newQuantity}")
+    public ResponseEntity<OrderDTO> changeOrderLineQuantity(
+            @PathVariable Long orderId,
+            @PathVariable Long orderLineId,
+            @PathVariable int newQuantity) {
+        OrderDTO updatedOrder = orderService.changeQuantityInOrderLine(orderId, orderLineId, newQuantity);
+        return ResponseEntity.ok(updatedOrder);
+    }
+
 }
