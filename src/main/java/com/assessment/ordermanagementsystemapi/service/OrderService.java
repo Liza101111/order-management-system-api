@@ -60,4 +60,10 @@ public class OrderService {
         return orderMapper.toDto(updatedOrder);
     }
 
+    public void deleteOrder(Long id){
+        Order order = orderRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException(message + id));
+        orderRepository.delete(order);
+    }
+
 }
