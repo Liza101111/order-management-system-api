@@ -1,6 +1,7 @@
 package com.assessment.ordermanagementsystemapi.service;
 
 import com.assessment.ordermanagementsystemapi.entity.Order;
+import com.assessment.ordermanagementsystemapi.exception.ResourceNotFoundException;
 import com.assessment.ordermanagementsystemapi.repository.OrderRepository;
 import com.assessment.ordermanagementsystemapi.service.dto.OrderDTO;
 import com.assessment.ordermanagementsystemapi.service.mapper.OrderMapper;
@@ -16,6 +17,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
+    private static String message = "Order not found with id: ";
 
     public OrderDTO save(OrderDTO orderDTO) {
         Order order = orderMapper.toEntity(orderDTO);
@@ -41,6 +43,12 @@ public class OrderService {
     public List<OrderDTO> getOrdersByCustomer(String customerName){
         List<Order> orders = orderRepository.findByCustomer(customerName);
         return orderMapper.entitiesToDTOs(orders);
+    }
+
+    public OrderDTO findById(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException(message + id));
+        return orderMapper.toDto(order);
     }
 
 }
