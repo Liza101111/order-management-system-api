@@ -51,4 +51,13 @@ public class OrderService {
         return orderMapper.toDto(order);
     }
 
+    public OrderDTO updateOrder(Long id, OrderDTO orderDTO){
+        Order existingOrder = orderRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException(message + id));
+        orderMapper.updateOrderFromDto(orderDTO, existingOrder);
+        Order updatedOrder = orderRepository.save(existingOrder);
+
+        return orderMapper.toDto(updatedOrder);
+    }
+
 }

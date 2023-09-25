@@ -72,4 +72,18 @@ public class OrderController {
         OrderDTO orderDTO = orderService.findById(id);
         return ResponseEntity.ok(orderDTO);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<OrderDTO> updateOrder(
+            @PathVariable Long id, @RequestBody OrderDTO orderDTO) {
+        OrderDTO updatedOrder = orderService.updateOrder(id, orderDTO);
+
+        if(updatedOrder != null) {
+            return ResponseEntity.ok(updatedOrder);
+        } else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 }
