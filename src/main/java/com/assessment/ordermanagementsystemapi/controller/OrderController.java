@@ -92,6 +92,7 @@ public class OrderController {
     }
 
     @PutMapping("/{orderId}/orderLines/{orderLineId}/quantity/{newQuantity}")
+    //http://localhost:8080/order/1/orderLnes/1/quantity/5
     public ResponseEntity<OrderDTO> changeOrderLineQuantity(
             @PathVariable Long orderId,
             @PathVariable Long orderLineId,
