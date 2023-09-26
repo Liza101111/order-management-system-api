@@ -67,8 +67,11 @@ class OrderRepositoryTest {
 
     @Test
     void findOrdersBySubmissionDate() {
+        //Given
         Date submissionDate = new Date(2023-04-13);
+        //When
         List<Order> foundOrders = orderRepository.findOrdersBySubmissionDate(submissionDate);
+        //Then
         Assertions.assertThat(foundOrders).isNotEmpty();
     }
 
@@ -76,13 +79,16 @@ class OrderRepositoryTest {
     void findByCustomer() {
         String customerName = "John Doe";
         List<Order> foundOrders = orderRepository.findByCustomer(customerName);
+
         Assertions.assertThat(foundOrders).isNotEmpty();
+        Assertions.assertThat(foundOrders.get(0).getCustomer().getFullName()).isEqualTo(customerName);
     }
 
     @Test
     void findByProduct() {
         String productName = "Jolt Cola";
         List<Order> foundOrders = orderRepository.findByProduct(productName);
+
         Assertions.assertThat(foundOrders).isNotEmpty();
     }
 }
