@@ -1,0 +1,15 @@
+insert into customers (id, full_name, email, registration_code, telephone) values (1, 'Abelard Perrington', 'aperrington0@angelfire.com', '33', '882-716-0001');
+insert into customers (id, full_name, email, registration_code, telephone) values (2, 'Bowie Greneham', 'bgreneham1@theguardian.com', '572', '786-274-1048');
+insert into customers (id, full_name, email, registration_code, telephone) values (3, 'Garrett Dello', 'gdello2@ycombinator.com', '4', '928-112-7010');
+insert into customers (id, full_name, email, registration_code, telephone) values (4, 'Wendi Applewhaite', 'wapplewhaite3@accuweather.com', '13', '457-757-7995');
+insert into customers (id, full_name, email, registration_code, telephone) values (5, 'Inesita Dunning', 'idunning4@dmoz.org', '8', '872-125-2571');
+insert into customers (id, full_name, email, registration_code, telephone) values (6, 'Harland Pearse', 'hpearse5@blog.com', '5', '224-336-8575');
+insert into customers (id, full_name, email, registration_code, telephone) values (7, 'Lillis Jacmard', 'ljacmard6@census.gov', '4374', '345-811-9753');
+insert into customers (id, full_name, email, registration_code, telephone) values (8, 'Wesley Seedhouse', 'wseedhouse7@eventbrite.com', '6', '934-654-1840');
+insert into customers (id, full_name, email, registration_code, telephone) values (9, 'Katrine Keme', 'kkeme8@ehow.com', '8903', '999-257-7339');
+insert into customers (id, full_name, email, registration_code, telephone) values (10, 'Sibella Brandenberg', 'sbrandenberg9@auda.org.au', '9', '808-151-6080');
+insert into customers (id, full_name, email, registration_code, telephone) values (11, 'Tanny Triebner', 'ttriebnera@walmart.com', '941', '742-389-4037');
+insert into customers (id, full_name, email, registration_code, telephone) values (12, 'Norma Lathan', 'nlathanb@guardian.co.uk', '04916', '520-840-9902');
+insert into customers (id, full_name, email, registration_code, telephone) values (13, 'Vanni Pomfrett', 'vpomfrettc@google.ca', '344', '660-876-0628');
+insert into customers (id, full_name, email, registration_code, telephone) values (14, 'Ingaborg Dolling', 'idollingd@technorati.com', '0', '929-684-6447');
+insert into customers (id, full_name, email, registration_code, telephone) values (15, 'Cornie Leaves', 'cleavese@omniture.com', '2', '122-395-6374');
