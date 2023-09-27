@@ -59,7 +59,7 @@ class OrderRepositoryTest {
         orderLineRepository.save(orderLine1);
 
         OrderLine orderLine2 = new OrderLine();
-        orderLine2.setProduct(product1);
+        orderLine2.setProduct(product2);
         orderLine2.setQuantity(10);
         orderLine2.setOrder(order);
         orderLineRepository.save(orderLine2);
